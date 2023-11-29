@@ -4,7 +4,7 @@
 * Plugin Name: Matomo HTTP Tracking
 * Plugin URI: https://dennis-heinri.ch/projekte
 * Description: Adds the Matomo HTTP Tracking Code to your WordPress Site
-* Version: 0.0.1
+* Version: 0.0.2
 * Requires at least: 6.4.1
 * Requires PHP: 8.1
 * Author: Dennis Heinrich
