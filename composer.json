@@ -1,0 +1,15 @@
+{
+    "name": "dennis-heinrich/wp-matomo-http-tracking",
+    "description": "Adds the Matomo HTTP tracking to your WordPress Site",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Dennis Heinrich",
+            "email": "hey@dennis-heinri.ch"
+        }
+    ],
+    "require": {
+        "matomo/matomo-php-tracker": "^3.2"
+    }
+}
