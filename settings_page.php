@@ -37,10 +37,28 @@
             }
         </style>
         <?php
-    } else {
-        echo "<p>Settings are valid</p>";
     }
     ?>
+
+    <section>
+        <h2>Information</h2>
+        This plugin was created by Dennis Heinrich <<a href="https://dennis-heinri.ch">https://dennis-heinri.ch</a>>
+
+        <?php
+            $validatedDetailed = matomoHttp_validateSettingsDetailed();
+            if(!isset($validatedDetailed[MATOMO_HTTP_TRACKING_SETTING_ID_TRACKING_URL]) && !isset($validatedDetailed[MATOMO_HTTP_TRACKING_SETTING_ID_SITE_ID])) {
+                $matomoUrl = sprintf("%s/index.php?module=CoreHome&action=index&date=yesterday&period=day&idSite=%s", esc_attr(get_option(MATOMO_HTTP_TRACKING_SETTING_ID_TRACKING_URL)), esc_attr(get_option(MATOMO_HTTP_TRACKING_SETTING_ID_SITE_ID)));
+        ?>
+            <br />
+            <br />
+
+            <a href="<?= $matomoUrl ?>" class="button button-secondary">
+                Open Matomo Dashboard
+            </a>
+        <?php } ?>
+        <br />
+
+    </section>
 
     <section>
         <h2>Tracking Settings</h2>
