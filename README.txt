@@ -3,7 +3,7 @@ Contributors: cloudmaker97
 Tags: tracking, matomo, analytics, cookieless
 Requires at least: 6.4.1
 Tested up to: 6.4.1
-Stable tag: 0.0.2
+Stable tag: 0.0.3
 License: BSD-3-Clause
 License URI: https://opensource.org/licenses/BSD-3-Clause
 
