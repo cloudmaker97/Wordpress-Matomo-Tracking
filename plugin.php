@@ -36,28 +36,6 @@ function matomoHttp_trackPageVisit(): void
     // The validation of the settings must be valid
     if(!matomoHttp_validateSettings()) return;
 
-    // Only track real visits on pages, excluding RPCs, Dashboard etc.
-    $validFrontendStates = [
-        is_page(),
-        is_singular(),
-        is_single(),
-        is_home(),
-        is_author(),
-        is_archive(),
-        is_front_page(),
-        is_404(),
-        is_category(),
-        is_search(),
-    ];
-    $hasValidState = false;
-    foreach ($validFrontendStates as $frontendState) {
-        if($frontendState) {
-            $hasValidState = true;
-            break;
-        }
-    }
-    if(!$hasValidState) return;
-
     // Gather the tracker data
     $matomoSiteId = esc_attr( get_option(MATOMO_HTTP_TRACKING_SETTING_ID_SITE_ID) );
     $matomoUrl = esc_attr( get_option(MATOMO_HTTP_TRACKING_SETTING_ID_TRACKING_URL) );
@@ -159,4 +137,8 @@ function matomoHttp_renderSettingsPage(): void {
 
 add_action('admin_menu', 'matomoHttp_addSettingsPage');
 matomoHttp_registerSettings();
-matomoHttp_trackPageVisit();
+
+// Only track calls in the frontend
+add_action( 'get_header', function () {
+    matomoHttp_trackPageVisit();
+} );
