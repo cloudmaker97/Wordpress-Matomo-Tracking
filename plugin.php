@@ -140,6 +140,6 @@ add_action('admin_menu', 'matomoHttp_addSettingsPage');
 matomoHttp_registerSettings();
 
 // Only track calls in the frontend
-add_action( 'get_header', function () {
+add_action( 'wp_head', function () {
     matomoHttp_trackPageVisit();
 } );
